@@ -1,0 +1,26 @@
+{% extends "admin/change_list.html" %}
+{% load static %}
+{% block content %}
+
+<h3>Export Data</h3>
+
+{% if messages %}
+
+{% endif %}
+
+<form id='export-form' method='POST' action="/export/" class='export-container'>
+    {% csrf_token %}
+    <select name="orders" id="orders">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+    </select>
+    <button class="button" type="submit">Export</button>
+</form>
+
+<style>
+.export-container{
+    margin-top: 10px !important
+}
+</style>
+{{ block.super }}
+{% endblock %}
