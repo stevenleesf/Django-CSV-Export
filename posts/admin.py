@@ -6,7 +6,6 @@ from .models import Post
 class PostAdmin(admin.ModelAdmin):
     model = Post
     list_display = ('title', 'content', 'timestamp', 'view_count')
-    exclude = ('view_count',)
     list_filter = ('timestamp', )
     list_per_page = 10
     change_list_template = "admin/posts/post/export.html"
